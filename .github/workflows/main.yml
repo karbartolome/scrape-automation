@@ -4,7 +4,7 @@ name: sitemap_scraping
 # Controls when the action will run.
 on:
   schedule:
-    - cron:  '0 13 * * *'
+    - cron:  '5 * * * *'
 
 
 jobs: 
@@ -21,10 +21,9 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages("tidyverse")'
-        R -e 'install.packages("rvest")'
     # Run R script
-    - name: Scrape
-      run: Rscript sitemap_scraping.R
+    - name: data
+      run: Rscript get_data.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
